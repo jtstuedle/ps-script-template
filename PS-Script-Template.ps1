@@ -1,6 +1,9 @@
+
 #Requires -version 5
 #Requires -Modules { PSLogging }
 ##Requires -RunAsAdministrator
+#https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_requires?view=powershell-7.1
+
 #PS-Script-Template.ps1
 <#
 .SYNOPSIS
@@ -16,23 +19,22 @@
 .OUTPUTS Log File
   The script log file stored in C:\Windows\Temp\<name>.log
 .NOTES
-  Version:        1.0
-  Author:         <Name>
-  Creation Date:  <Date>
-  Purpose/Change: Initial script development
+  Version:  1.0
+  Author:   <Name>
+  Date:     <Date>
 .EXAMPLE
-  <Example explanation goes here>
+  Example command.
   
-  <Example goes here. Repeat this attribute for more than one example>
+  Example command. Repeat for more than one example
 #>
 
-#---------------------------------------------------------[Parameters]------------------------------------------------------
+#-----------------------------------------------[Parameters]--------------------------------------------
 
 Param (
   #Script parameters go here
 )
 
-#---------------------------------------------------------[Initialization]--------------------------------------------------------
+#-----------------------------------------------[Initialization]----------------------------------------------
 
 #Set Error Action to Silently Continue
 $ErrorActionPreference = 'SilentlyContinue'
@@ -40,7 +42,7 @@ $ErrorActionPreference = 'SilentlyContinue'
 #Import Modules & Snap-ins
 Import-Module PSLogging
 
-#----------------------------------------------------------[Declarations]----------------------------------------------------------
+#------------------------------------------------[Declarations]------------------------------------------------
 
 #Script Version
 $sScriptVersion = '1.0'
@@ -50,7 +52,7 @@ $sLogPath = 'C:\Windows\Temp'
 $sLogName = '<script_name>.log'
 $sLogFile = Join-Path -Path $sLogPath -ChildPath $sLogName
 
-#-----------------------------------------------------------[Functions]------------------------------------------------------------
+#-------------------------------------------------[Functions]--------------------------------------------------
 
 <#
 Function <FunctionName> {
@@ -76,7 +78,7 @@ Function <FunctionName> {
 }
 #>
 
-#-----------------------------------------------------------[Execution]------------------------------------------------------------
+#-------------------------------------------------[Execution]--------------------------------------------------
 Start-Log -LogPath $sLogPath -LogName $sLogName -ScriptVersion $sScriptVersion
-#Script Execution goes here
+#Script Execution
 Stop-Log -LogPath $sLogFile
